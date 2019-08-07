@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortestPath", "ShortestPat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortestPathTests", "ShortestPathTests\ShortestPathTests.csproj", "{D47EBEEE-2EE2-4406-AD5A-0DCD5AE1E887}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortestPathIntegrationTests", "ShortestPathIntegrationTests\ShortestPathIntegrationTests.csproj", "{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{D47EBEEE-2EE2-4406-AD5A-0DCD5AE1E887}.Release|x64.Build.0 = Release|Any CPU
 		{D47EBEEE-2EE2-4406-AD5A-0DCD5AE1E887}.Release|x86.ActiveCfg = Release|Any CPU
 		{D47EBEEE-2EE2-4406-AD5A-0DCD5AE1E887}.Release|x86.Build.0 = Release|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Debug|x86.Build.0 = Debug|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Release|x64.ActiveCfg = Release|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Release|x64.Build.0 = Release|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Release|x86.ActiveCfg = Release|Any CPU
+		{96B7F423-5A44-4AD2-B63B-57964DF3C4F3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
