@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using ShortestPath.Models;
 using ShortestPath.Servies;
 
@@ -8,6 +9,7 @@ namespace ShortestPath.Facades
     public interface IMapFacade
     {
         void SaveMap(string mapId, ViewMap viewMap);
+        JsonResult GetShortestPath(string mapId, string startId, string endId);
     }
 
     public class MapFacade : IMapFacade
@@ -34,6 +36,11 @@ namespace ShortestPath.Facades
                 Keys = viewNodes.Nodes.Select(x => x.Id).ToList()
             });
 
+        }
+
+        public JsonResult GetShortestPath(string mapId, string startId, string endId)
+        {
+            throw new NotImplementedException();
         }
     }
 
