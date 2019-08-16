@@ -17,12 +17,14 @@ namespace ShortestPath.Facades
         private readonly INodeUtility _nodeUtility;
         private readonly IAdjacencyMatrix _adjacencyMatrix;
         private readonly IDataLayer _dataLayer;
+        private readonly IDijkstra _dijkstra;
 
-        public MapFacade(INodeUtility nodeUtility, IAdjacencyMatrix adjacencyMatrix, IDataLayer dataLayer)
+        public MapFacade(INodeUtility nodeUtility, IAdjacencyMatrix adjacencyMatrix, IDataLayer dataLayer, IDijkstra dijkstra)
         {
             _nodeUtility = nodeUtility;
             _adjacencyMatrix = adjacencyMatrix;
             _dataLayer = dataLayer;
+            _dijkstra = dijkstra;
         }
 
         public void SaveMap(string mapId, ViewMap viewMap)
@@ -40,7 +42,10 @@ namespace ShortestPath.Facades
 
         public JsonResult GetShortestPath(string mapId, string startId, string endId)
         {
-            throw new NotImplementedException();
+            var dataMap = _dataLayer.GetMap(mapId);
+            var shortestPath = _dijkstra.GetShortestPath(dataMap, startId, endId);
+
+            return new JsonResult(shortestPath) { StatusCode = 200 };
         }
     }
 

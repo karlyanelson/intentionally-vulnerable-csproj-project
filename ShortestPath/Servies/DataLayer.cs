@@ -8,6 +8,7 @@ namespace ShortestPath.Servies
     {
         
         void Save(DataMap dataMap);
+        DataMap GetMap(string mapId);
     }
 
     public class DataLayer : IDataLayer
@@ -21,6 +22,11 @@ namespace ShortestPath.Servies
         public void Save(DataMap dataMap)
         {
             DataMapList.Add(dataMap);   
+        }
+
+        public DataMap GetMap(string mapId)
+        {
+            throw new NotImplementedException();
         }
     }
 
