@@ -20,7 +20,7 @@ namespace ShortestPath.Servies
 
         public void Save(DataMap dataMap)
         {
-            DataMapList.Add(dataMap);
+            DataMapList.Add(dataMap);   
         }
     }
 
