@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ShortestPath.Facades;
+using ShortestPath.Servies;
 
 namespace ShortestPath
 {
@@ -26,6 +28,11 @@ namespace ShortestPath
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddTransient<INodeUtility, NodeUtility>();
+            services.AddTransient<IAdjacencyMatrix, AdjacencyMatrix>();
+            services.AddTransient<IMapFacade, MapFacade>();
+
+            services.AddSingleton<IDataLayer, DataLayer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -17,5 +17,9 @@
    <ItemGroup>
      <Folder Include="Models\" />
      <Folder Include="Facades\" />
+     <Folder Include="Servies\" />
+   </ItemGroup>
+   <ItemGroup>
+     <Compile Remove="Servies\EmptyClass.cs" />
    </ItemGroup>
 </Project>
