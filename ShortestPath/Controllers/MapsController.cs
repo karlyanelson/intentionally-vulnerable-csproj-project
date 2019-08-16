@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ShortestPath.Facades;
+using ShortestPath.Models;
 
 namespace ShortestPath.Controllers
 {
@@ -10,6 +12,13 @@ namespace ShortestPath.Controllers
     [ApiController]
     public class MapsController : ControllerBase
     {
+        private IMapFacade _mapFacade;
+
+        public MapsController(IMapFacade mapFacade)
+        {
+            _mapFacade = mapFacade;
+        }
+
         // GET maps
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -24,22 +33,12 @@ namespace ShortestPath.Controllers
             return "value";
         }
 
-        // POST maps
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
         // PUT maps/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{mapId}")]
+        public void Put(string mapId, [FromBody] ViewMap viewMap)
         {
+            _mapFacade.SaveMap(mapId, viewMap);
         }
 
-        // DELETE maps/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
