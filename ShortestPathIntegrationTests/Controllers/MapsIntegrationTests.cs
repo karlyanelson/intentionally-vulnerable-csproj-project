@@ -50,6 +50,8 @@ namespace Tests
             nodes.Add("b", bArc);
             nodes.Add("c", cArc);
 
+            viewMap.nodes = nodes;
+
             var response = await _client.PutAsJsonAsync("/maps/redmond", viewMap);
 
             var statusCode = response.StatusCode;

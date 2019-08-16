@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ShortestPath.Models;
 
 namespace ShortestPath.Servies
@@ -10,13 +11,18 @@ namespace ShortestPath.Servies
 
     public class NodeUtility : INodeUtility
     {
-        public NodeUtility()
-        {
-        }
-
         public ViewNodes ToNodes(ViewMap viewMap)
         {
-            throw new NotImplementedException();
+            var nodes = viewMap.nodes;
+
+            List<Node> nodeList = new List<Node>();
+
+            foreach(var node in nodes)
+            {
+                nodeList.Add(new Node { Id = node.Key, Arc = node.Value });
+            }
+
+            return new ViewNodes { Nodes = nodeList };
         }
     }
 
