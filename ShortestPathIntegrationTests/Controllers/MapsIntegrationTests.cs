@@ -23,24 +23,8 @@ namespace Tests
         }
 
         [Test]
-        public async Task Test()
-        {
-            HttpResponseMessage response = await _client.GetAsync("/maps");
-            var statusCode = response.StatusCode;
-
-            string responseString = await response.Content.ReadAsStringAsync();
-            dynamic responseBody = JsonConvert.DeserializeObject<dynamic>(responseString);
-            var actual = responseBody[0].ToString();
-
-            Assert.AreEqual("value1", actual);
-            Assert.AreEqual(200, (int)statusCode);
-            Assert.Fail();
-        }
-
-        [Test]
         public async Task Put_Redmond()
         {
-
             ViewMap viewMap = new ViewMap();
             var nodes = new Dictionary<string, IDictionary<string, float>>();
             var aArc = new Dictionary<string, float> { { "b", 2 }, { "c", 5 } };
@@ -57,6 +41,37 @@ namespace Tests
             var statusCode = response.StatusCode;
 
             Assert.AreEqual(200, (int)statusCode);
+        }
+
+
+        [Test]
+        public async Task Get_FastestPath()
+        {
+            ViewMap viewMap = new ViewMap();
+            var nodes = new Dictionary<string, IDictionary<string, float>>();
+            var aArc = new Dictionary<string, float> { { "b", 2 }, { "c", 5 } };
+            var bArc = new Dictionary<string, float> { { "b", 2 } };
+            var cArc = new Dictionary<string, float> { { "a", 8 } };
+            nodes.Add("a", aArc);
+            nodes.Add("b", bArc);
+            nodes.Add("c", cArc);
+
+            viewMap.nodes = nodes;
+
+            await _client.PutAsJsonAsync("/maps/redmond", viewMap);
+
+            var response = await _client.GetAsync("/maps/redmond/path/a/c");
+
+            string responseString = await response.Content.ReadAsStringAsync();
+            var shortestPathResponse = JsonConvert.DeserializeObject<ShortestPathResponse>(responseString);
+
+            Assert.AreEqual(4f, shortestPathResponse.Distance) ;
+            Assert.AreEqual("a", shortestPathResponse.Path[0]);
+            Assert.AreEqual("b", shortestPathResponse.Path[1]);
+            Assert.AreEqual("c", shortestPathResponse.Path[2]);
+
+            Assert.AreEqual(200, (int)response.StatusCode);
+
         }
     }
 }

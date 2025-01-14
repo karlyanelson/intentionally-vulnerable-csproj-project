@@ -31,6 +31,7 @@ namespace ShortestPath
             services.AddTransient<INodeUtility, NodeUtility>();
             services.AddTransient<IAdjacencyMatrix, AdjacencyMatrix>();
             services.AddTransient<IMapFacade, MapFacade>();
+            services.AddTransient<IDijkstra, Dijkstra>();
 
             services.AddSingleton<IDataLayer, DataLayer>();
         }

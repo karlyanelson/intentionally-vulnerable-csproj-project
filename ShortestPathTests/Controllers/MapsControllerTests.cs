@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
@@ -28,6 +29,17 @@ namespace ShortestPathTests.Controllers
             _testObject.Put("whatever", viewMap);
 
             _mapFacade.Verify(x => x.SaveMap("whatever", viewMap));
+        }
+
+        [Test]
+        public void Get()
+        {
+            JsonResult expected = new JsonResult(new { });
+            _mapFacade.Setup(m => m.GetShortestPath("Redmond", "a", "c")).Returns(expected);
+
+            var actual = _testObject.Get("Redmond", "a", "c");
+
+            Assert.AreSame(expected, actual);
         }
 
     }

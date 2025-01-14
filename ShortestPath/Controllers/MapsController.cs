@@ -27,10 +27,10 @@ namespace ShortestPath.Controllers
         }
 
         // GET maps/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{mapId}/path/{startId}/{endId}")]
+        public JsonResult Get(string mapId, string startId, string endId)
         {
-            return "value";
+            return _mapFacade.GetShortestPath(mapId, startId, endId);
         }
 
         // PUT maps/5
