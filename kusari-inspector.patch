@@ -1,0 +1,25 @@
+diff --git a/ShortestPath/ShortestPath.csproj b/ShortestPath/ShortestPath.csproj
+index 20d564e..18f6b53 100644
+--- a/ShortestPath/ShortestPath.csproj
++++ b/ShortestPath/ShortestPath.csproj
+@@ -8,7 +8,7 @@
+    <ItemGroup>
+     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+-    <PackageReference Include="Snappier" Version="1.1.0" />
++    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+   </ItemGroup>
+ 
+    <ItemGroup>
+diff --git a/ShortestPathIntegrationTests/ShortestPathIntegrationTests.csproj b/ShortestPathIntegrationTests/ShortestPathIntegrationTests.csproj
+index 75a8d4e..96f270a 100644
+--- a/ShortestPathIntegrationTests/ShortestPathIntegrationTests.csproj
++++ b/ShortestPathIntegrationTests/ShortestPathIntegrationTests.csproj
+@@ -10,6 +10,7 @@
+     <PackageReference Include="nunit" Version="3.11.0" />
+     <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
++    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+ 
+     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.0" />
+     <PackageReference Include="Microsoft.AspNetCore.App">
